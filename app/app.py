@@ -10,10 +10,11 @@ def hello():
 @app.route("/", methods= ['GET', 'POST'])
 def home():
     if request.method == 'POST':
-    	value = int(request.form['number'])
-        add_one = value + 1
-        return render_template('index.html', string="TESTING", value = add_one)	
-    return render_template('index.html', string="TESTING")		    
+    	value_one = int(request.form['number_one'])
+    	value_two = int(request.form['number_two'])
+        total = value_one + value_two
+        return render_template('index.html', value = total)	
+    return render_template('index.html')		    
 
 
 if __name__ == '__main__':
