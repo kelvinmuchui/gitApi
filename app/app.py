@@ -28,10 +28,12 @@ def hello():
 def home():
     if request.method == 'POST':
         # user inputs
+
         first = request.form.get('first')
         second = request.form.get('second')
         # api call
         url = "https://api.github.com/search/users?q=location:{0}+language:{1}".format(first, second)
+        #returning dict to the view
         response_dict = requests.get(url).json()
         # return json
         return jsonify(response_dict)
